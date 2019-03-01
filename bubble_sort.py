@@ -1,3 +1,4 @@
+#Listeye Random sayılar ekleme
 import random
 def generate_an_array(n):
     my_array=[]
@@ -8,14 +9,22 @@ def generate_an_array(n):
 my_arr_1=generate_an_array(10)
 print(my_arr_1) 
 
+#Bir dizinin içinde aranan sayının olup olmadığını kontrol eden kod
 def my_search_c(array_2,item):
   found=False
-  for i in array_2:
-    if(i==item):
-      found =True
-  return found
+  indis =-1
+  step=0
+  for i in range(len(array_2)):
+    step+=1
+    #if(i==item):
+      #found =True
+    if (array_2[i]==item):
+      found=True
+      indis=i
+      break
+  return found,indis,step
 
-
+#Bubble Sort sıralama kodu
 for i in range (len(my_arr_1)-1,0,-1):
   for j in range(i):
     if(my_arr_1[j]>my_arr_1[j+1]):
