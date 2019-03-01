@@ -9,7 +9,7 @@ def generate_an_array(n):
 my_arr_1=generate_an_array(10)
 print(my_arr_1) 
 
-#Bir dizinin içinde aranan sayının olup olmadığını kontrol eden kod
+#Bir listenin içinde aranan sayının olup olmadığını kontrol eden kod
 def my_search_c(array_2,item):
   found=False
   indis =-1
