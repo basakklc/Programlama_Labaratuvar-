@@ -1,0 +1,63 @@
+import random
+def gaussian(x,mu,sigma):
+  f_1=(1.0/(sigma*((2*pylab.pi)**0.5)))
+  f_2=pylab.e**-(((x-mu)**2)/(2*sigma**2))
+  return f_1*f_2
+
+def rollDie(self):
+   return random.choice([1,2,3,4,5,6])
+
+def checkPascal(numTrails):
+  numWins=0
+  for i in range(numTrails):
+    for j in range(24):
+      d1=rollDie()
+      d2=rollDie()
+      if(d1==6 and d2==6):
+        numWins+=1
+        break
+  return(numWins/numTrails)
+
+print(checkPascal(5))
+
+class craspGame(object):
+    def __init__(self):
+        self.passWins,self.dpLosses,self.passLosses=0,0,0
+        self.dpWins,self.dpLosses,self.dpPushes=0,0,0
+   
+  
+
+    def playHand(self):
+      throw=self.rollDie()+self.rollDie()
+      if(throw==7 or throw==11):
+        self.passWins+=1
+        self.dpLosses+=1
+      elif(throw==2 or throw==3 or throw==12 ):
+        self.passLosses+=1#kaybetme durumunu arttiri 
+        if(throw==12):
+          self.dpPushes+=1
+
+        else:
+          self.dpWins+=1
+  
+      else:
+         point=throw
+         while(True):
+          throw=self.rollDie()+self.rollDie()
+          if(throw==point):
+             self.passWins+=1
+             self.dpLosses+=1
+             break
+          elif(throw==7):
+             self.passLosses+=1
+             self.dpWins+=1
+             break
+
+
+
+c=craspGame()
+for i in range(1000):
+  c.playHand()
+print(c.passWins/1000)
+
+
